@@ -1,10 +1,10 @@
 This file will run a Photoshop script that shows a dialog. The dialog will allow the input of 6 fields:
 
-Full Name
-Title
-Area Code
-Phone
-Ext
+Full Name, 
+Title, 
+Area Code, 
+Phone, 
+Ext, 
 Email
 
 The only requirement is that the photoshop document being targeted, 
