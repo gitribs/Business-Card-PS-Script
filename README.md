@@ -1,5 +1,3 @@
-/**
-
 This file will run a Photoshop script that shows a dialog. The dialog will allow the input of 6 fields:
 
 Full Name
@@ -22,5 +20,3 @@ The test layers can be nested in other layers or groups. The code will find them
 
 The created PNG file will be saved in ~/Downloads when the script is executed,
 named following the format of firstname-lastname-card.png
-
-**/
