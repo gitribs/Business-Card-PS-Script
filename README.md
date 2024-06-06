@@ -11,9 +11,9 @@ The only requirement is that the photoshop document being targeted,
 (which must be open in Photoshop before running this script),
 contains the following text layers:
 
-tf_name
-tf_title
-tf_phone
+tf_name, 
+tf_title, 
+tf_phone, 
 tf_email
 
 The test layers can be nested in other layers or groups. The code will find them.
