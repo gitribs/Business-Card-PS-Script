@@ -16,7 +16,7 @@ tf_title,
 tf_phone, 
 tf_email
 
-The test layers can be nested in other layers or groups. The code will find them.
+The text layers can be nested in other layers or groups. The code will find them.
 
 The created PNG file will be saved in ~/Downloads when the script is executed,
 named following the format of firstname-lastname-card.png
