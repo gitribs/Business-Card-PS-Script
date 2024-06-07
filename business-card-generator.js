@@ -20,14 +20,16 @@ tf_email
 
 Alternatively, those text layer names can be changed at the top of the code below.
 
-The script will work on any PSD that contains the reuired text layers, which can be 
+The script will work on any PSD that contains the required text layers, which can be 
 nested in other layers or groups. The script will find them.
 
 The created PNG file will be saved in ~/Downloads by default when the script is executed,
 named following the format of firstname-lastname-card.png. The download path can be changed
 at the top of the code below.
 
-A template PSD is included in the repo.
+A template PSD is included in the repo. If the template is used, the font will need to be
+updated to one that is present on the user's computer, and editing of the text layer positions
+may be necessary.
 
 **/
 
