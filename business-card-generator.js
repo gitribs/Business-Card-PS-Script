@@ -37,6 +37,10 @@ may be necessary.
 
 /**
 
+BEGIN USER VARS. EDIT BELOW AS NEEDED
+
+-----------------------------------------------------------------------------------------------
+
 TEXT LAYER NAMES
 
 These <somethingTextLayer> vars correspond to the names of the text layers in the PSD.
@@ -66,6 +70,8 @@ The file saves to ~/Downloads unless changed below
 var savePath = '~/Downloads';
 
 /**
+
+-----------------------------------------------------------------------------------------------
 
 END USER VARS. DO NOT EDIT BELOW!
 
