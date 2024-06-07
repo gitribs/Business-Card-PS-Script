@@ -83,7 +83,7 @@ var docRef = app.activeDocument;
 var username, title, phone, ext, email = '';
 var u;
 
-var dlg = new Window ('dialog', 'JDV Card Creator', u);
+var dlg = new Window ('dialog', 'Business Card Creator', u);
 dlg.location = [100,100];
 dlg.margins = 15;
 dlg.orientation = 'stack';
