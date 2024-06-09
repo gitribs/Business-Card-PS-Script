@@ -41,17 +41,14 @@ BEGIN USER VARS. EDIT BELOW AS NEEDED
 
 -----------------------------------------------------------------------------------------------
 
-TEXT LAYER NAMES
-
-These <somethingTextLayer> vars correspond to the names of the text layers in the PSD.
-If unchanged, the text layers in the PSD will need to match the default values below.
+The address portion of the card can be editable fields if needed.
+If the address will always be the same for each new card, just edit it once
+in the template. Otherwise set the following var to TRUE to make the dialog 
+also show input fields for address, city, state, and zip.
 
 **/
 
-var userNameTextLayer = 'tf_name';
-var titleTextLayer = 'tf_title';
-var phoneTextLayer = 'tf_phone';
-var emailTextLayer = 'tf_email';
+var useAddress = false;
 
 /** 
 
@@ -59,7 +56,7 @@ Change <emailBase> to the domain to be displayed on the card
 
 **/
 
-var emailBase = '@site.com'; // change to your domain
+var emailBase = 'site.com'; // change to desired website domain
 
 /**
 
@@ -67,7 +64,28 @@ The file saves to ~/Downloads unless changed below
 
 **/
 
-var savePath = '~/Downloads';
+var savePath = '~/Documents';
+
+/**
+
+TEXT LAYER NAMES
+
+The vars below must correspond to the names of the text layers in the PSD.
+Build the template PSD with the same text layer names as below, or change 
+the values below to match the text layer names in the template PSD.
+
+**/
+
+var userNameTextLayer = 'tf_name';
+var titleTextLayer = 'tf_title';
+
+if(useAddress) {
+  var addressTextLayer = 'tf_address';
+  var locationTextLayer = 'tf_location';
+}
+
+var phoneTextLayer = 'tf_phone';
+var emailTextLayer = 'tf_email';
 
 /**
 
@@ -80,7 +98,7 @@ END USER VARS. DO NOT EDIT BELOW!
 
 
 var docRef = app.activeDocument;
-var username, title, phone, ext, email = '';
+var username, title, address, location, phone, ext, email = '';
 var u;
 
 var dlg = new Window ('dialog', 'Business Card Creator', u);
@@ -100,6 +118,12 @@ confirmPanel.alignChildren = ['fill', -1];
 confirmPanel.margins = [15, 20, 15, 15];
 var confirmName = confirmPanel.add('statictext', u, '-');
 var confirmTitle = confirmPanel.add('statictext', u, '-');
+
+if(useAddress) {
+  var confirmAddress = confirmPanel.add('statictext', u, '-');
+  var confirmLocation = confirmPanel.add('statictext', u, '-');
+}
+
 var confirmPhone = confirmPanel.add('statictext', u, '-');
 var confirmEmail = confirmPanel.add('statictext', u, '-');
 
@@ -124,6 +148,25 @@ titleContainer.add('statictext', u, 'Title:');
 var titleField = titleContainer.add('edittext', u);
 titleField.characters = 30;
 
+if(useAddress) {
+  var addressContainer = mainPanel.add( 'group' );
+  nameContainer.orientation = 'row';
+  addressContainer.add('statictext', u, 'Street Address:');
+  var addressField = addressContainer.add('edittext', u);
+  addressField.characters = 30;
+
+  var locationContainer = mainPanel.add( 'group' );
+  locationContainer.add('statictext', u, 'City');
+  var cityField = locationContainer.add('edittext', u);
+  cityField.characters = 11;
+  locationContainer.add('statictext', u, '  State:');
+  var stateField = locationContainer.add('edittext', u);
+  stateField.characters = 3;
+  locationContainer.add('statictext', u, 'Zip');
+  var zipField = locationContainer.add('edittext', u);
+  zipField.characters = 5;
+}
+
 var phoneContainer = mainPanel.add( 'group' );
 phoneContainer.add('statictext', u, 'Area Code:');
 var areaCodeField = phoneContainer.add('edittext', u);
@@ -141,9 +184,9 @@ extField.characters = 4;
 var emailContainer = mainPanel.add( 'group' );
 emailContainer.add('statictext', u, 'Email:');
 var emailField = emailContainer.add('edittext', u);
-emailField.characters = 21;
+emailField.characters = 22;
 emailField.justify = 'right';
-emailContainer.add('statictext', u, '@dv-llc.com');
+emailContainer.add('statictext', u, '@' + emailBase);
 
 var btnPreviewContainer = mainPanel.add( 'panel', u, u, {borderStyle: 'none'});
 btnPreviewContainer.alignment = 'center';
@@ -154,18 +197,33 @@ btnPreview.onClick = showPreview;
 function showPreview() {
   username = nameField.text;
   title = titleField.text;
+
+  if(useAddress) {
+    address = addressField.text;
+    var city = cityField.text;
+    var state = stateField.text;
+    var zip = zipField.text;
+    location = city + ', ' + state + ' ' + zip;
+  }
+
   ext = extField.text == '' ? '' : ' x' + extField.text;
   phone = '(' + areaCodeField.text + ') ' + 
                 phoneField.text.substr(0, 3) + '-' + 
                 phoneField.text.substr(3) + 
                 ext;
 
-  email = emailField.text + emailBase;
+  email = emailField.text + '@' + emailBase;
 
-  confirmName.text = ' Name:  ' + username;
-  confirmTitle.text = '   Title:  ' + title;
-  confirmPhone.text = 'Phone:  ' + phone;
-  confirmEmail.text = '  Email:  ' + email;
+  confirmName.text = '     Name:  ' + username;
+  confirmTitle.text = '       Title:  ' + title;
+
+  if(useAddress) {
+    confirmAddress.text = ' Address:  ' + address;
+    confirmLocation.text = '                  ' + location;
+  }
+
+  confirmPhone.text = '    Phone:  ' + phone;
+  confirmEmail.text = '      Email:  ' + email;
 
   mainPanel.visible = false;
 }
@@ -177,6 +235,12 @@ function goBack() {
 function populateFields() {
   changeTextLayerContent(docRef, userNameTextLayer, username);
   changeTextLayerContent(docRef, titleTextLayer, title);
+
+  if(useAddress) {
+    changeTextLayerContent(docRef, addressTextLayer, address);
+    changeTextLayerContent(docRef, locationTextLayer, location);
+  }
+
   changeTextLayerContent(docRef, phoneTextLayer, phone);
   changeTextLayerContent(docRef, emailTextLayer, email);
 
@@ -184,7 +248,7 @@ function populateFields() {
 }
 
 function finalize() {
-  if(confirm('Click OK to save to /Downloads')) {
+  if(confirm('Click OK to save to ' + savePath)) {
     dlg.close();
     saveFile();
   } else {
