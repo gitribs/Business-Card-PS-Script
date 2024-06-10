@@ -20,7 +20,7 @@ also show 4 addition fields:
 
 NOTE: **The card template PSD must be open before running the script.**
 
-# Text layer names
+## Text layer names
 
 - tf_name
 - tf_title
@@ -39,11 +39,11 @@ The template PSD is not required. The script will work on any PSD that contains 
 that match the values assigned to the `<something>TextLayer` variables in the script. The text 
 layers can be nested in other layers or groups. The script will find them.
 
-# Email Domain
+## Email Domain
 
-The var `emailBase` should be updated to the desired email address domain desired.
+The var `emailBase` should be updated to the desired email address domain.
 
-# Save Location
+## Save Location
 
 The created PNG file will be saved in `~/Downloads` by default when the script is executed,
 named following the format of `firstname-lastname-card.png`. To customize the download path, 
