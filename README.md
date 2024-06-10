@@ -36,7 +36,7 @@ A template PSD is included in the repo. If the template is used, the font will n
 updated to one that is present on the user's computer. Design the template as needed.
 
 The template PSD is not required. The script will work on any PSD that contains text layers
-that match the values assigned to the `somethingTextLayer` variables in the script. The text 
+that match the values assigned to the `<something>TextLayer` variables in the script. The text 
 layers can be nested in other layers or groups. The script will find them.
 
 # Email Domain
