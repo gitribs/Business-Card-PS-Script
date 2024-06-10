@@ -20,7 +20,7 @@ also show 4 addition fields:
 
 NOTE: **The card template PSD must be open before running the script.**
 
-#Text layer names
+# Text layer names
 
 - tf_name
 - tf_title
@@ -53,7 +53,9 @@ To run the script, go to **File > Scripts > Browse** and navigate to the script'
 
 For quicker access, drop the script in the following location:
 
-- **PC**   \Program Files\Adobe\Adobe Photoshop 2021\Presets\Scripts
-- **Mac**  /Applications/Adobe\ Photoshop\ 2023/Presets/Scripts
+- **PC**   \Program Files\Adobe\Adobe Photoshop 2024\Presets\Scripts
+- **Mac**  /Applications/Adobe\ Photoshop\ 2024/Presets/Scripts
+
+NOTE: **The version of Photoshop may need to be changed from the path examples above.**
 
 The script should appear in the same menu as the Browse option described above.
