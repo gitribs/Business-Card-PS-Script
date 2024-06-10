@@ -1,5 +1,7 @@
 /**
  * @author Erik Howard <https://codingfiend.com>
+
+ Free to use and modify, no attibution required.
  */
 
 #target photoshop
