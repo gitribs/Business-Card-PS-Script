@@ -1,37 +1,6 @@
 /**
-
-This Photoshop script will show a dialog that enables the input of 6 fields:
-
-Full Name
-Title
-Area Code
-Phone
-Ext
-Email
-
-The card template PSD must be open before running the script.
-
-The only requirement is that the PSD contains the following text layers:
-
-tf_name
-tf_title
-tf_phone
-tf_email
-
-Alternatively, those text layer names can be changed at the top of the code below.
-
-The script will work on any PSD that contains the required text layers, which can be 
-nested in other layers or groups. The script will find them.
-
-The created PNG file will be saved in ~/Downloads by default when the script is executed,
-named following the format of firstname-lastname-card.png. The download path can be changed
-at the top of the code below.
-
-A template PSD is included in the repo. If the template is used, the font will need to be
-updated to one that is present on the user's computer, and editing of the text layer positions
-may be necessary.
-
-**/
+ * @author Erik Howard <https://codingfiend.com>
+ */
 
 #target photoshop
 
@@ -40,11 +9,6 @@ may be necessary.
 BEGIN USER VARS. EDIT BELOW AS NEEDED
 
 -----------------------------------------------------------------------------------------------
-
-The address portion of the card can be editable fields if needed.
-If the address will always be the same for each new card, just edit it once
-in the template. Otherwise set the following var to TRUE to make the dialog 
-also show input fields for address, city, state, and zip.
 
 **/
 

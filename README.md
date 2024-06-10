@@ -1,30 +1,59 @@
-This file will run a Photoshop script that shows a dialog. The dialog will allow the input of 6 fields:
+# Business Card Photoshop Script
 
-Full Name, 
-Title, 
-Area Code, 
-Phone, 
-Ext, 
-Email
+This script facilitates quickly creating new business cards from a PSD template.
+It will show a dialog that enables the input of 6 fields:
 
-The card template PSD must be open before running the script.
+- Full Name
+- Title
+- Area Code
+- Phone
+- Ext
+- Email
 
-The only requirement is that the PSD contains the following text layers:
+If the value `useAddress` is set to **true** in the script's code, the dialog will
+also show 4 addition fields:
 
-tf_name, 
-tf_title, 
-tf_phone, 
-tf_email
+- address
+- city
+- state
+- zip
 
-Alternatively, those text layer names can be changed at the top of the code.
+NOTE: **The card template PSD must be open before running the script.**
 
-The script will work on any PSD that contains the required text layers, which can be 
-nested in other layers or groups. The script will find them.
+#Text layer names
 
-The created PNG file will be saved in ~/Downloads by default when the script is executed,
-named following the format of <firstname-lastname-cardpng>. The download path can be changed
-at the top of the code below.
+- tf_name
+- tf_title
+- tf_phone
+- tf_email
+
+If `useAddress` is set to **true**
+
+- tf_address
+- tf_location
 
 A template PSD is included in the repo. If the template is used, the font will need to be
-updated to one that is present on the user's computer, and editing of the text layer positioning
-may be necessary.
+updated to one that is present on the user's computer. Design the template as needed.
+
+The template PSD is not required. The script will work on any PSD that contains text layers
+that match the values assigned to the `somethingTextLayer` variables in the script. The text 
+layers can be nested in other layers or groups. The script will find them.
+
+# Email Domain
+
+The var `emailBase` should be updated to the desired email address domain desired.
+
+# Save Location
+
+The created PNG file will be saved in `~/Downloads` by default when the script is executed,
+named following the format of `firstname-lastname-card.png`. To customize the download path, 
+change the value of `savePath` in the script code as needed. 
+
+To run the script, go to **File > Scripts > Browse** and navigate to the script's location.
+
+For quicker access, drop the script in the following location:
+
+- **PC**   \Program Files\Adobe\Adobe Photoshop 2021\Presets\Scripts
+- **Mac**  /Applications/Adobe\ Photoshop\ 2023/Presets/Scripts
+
+The script should appear in the same menu as the Browse option described above.
