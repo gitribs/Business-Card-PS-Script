@@ -47,7 +47,9 @@ The var `emailBase` should be updated to the desired email address domain.
 
 The created PNG file will be saved in `~/Downloads` by default when the script is executed,
 named following the format of `firstname-lastname-card.png`. To customize the download path, 
-change the value of `savePath` in the script code as needed. 
+change the value of `savePath` in the script code as needed.
+
+## How to use
 
 To run the script, go to **File > Scripts > Browse** and navigate to the script's location.
 
