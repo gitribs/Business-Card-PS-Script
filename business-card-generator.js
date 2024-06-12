@@ -1,7 +1,13 @@
 /**
  * @author Erik Howard <https://codingfiend.com>
 
+ This is a great script to convert for other cases
+ where one needs to output the same document with 
+ new text. All the relevant bits are there to modify
+ as needed.
+
  Free to use and modify, no attibution required.
+
  */
 
 #target photoshop
